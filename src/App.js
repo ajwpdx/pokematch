@@ -9,6 +9,7 @@ function App() {
   
   const [memCards, setMemCards] = useState([])
   const [collection, setCollection] = useState(coding)
+  const [selection, setSelection] = useState([])
 
 
   useEffect(() => {
@@ -24,12 +25,13 @@ function App() {
     return dupCards
   }
 
-
-
-  console.log(memCards)
   return (
     <div className="App">
+      <header>
+        <button>Randomize</button>
+      </header>
       <div className="card-area">
+
         {memCards.map(cardData => {
           return <MemoryCard key={cardData.key} card={cardData}/>
         })}
