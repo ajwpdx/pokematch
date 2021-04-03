@@ -1,14 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Sigmar+One);
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 52.5%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
 h2{
-  font-size: 1.2rem;
+  font-family: 'Sigmar One' sans-serif;
+  font-size: 1.6rem;
 }
 
 header{
+  background-color: lightcoral;
+  box-shadow: 5px 2px 9px 0px rgba(0,0,0,0.61);
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  padding: 50px;
-  background-color: lightcoral;
-  box-shadow: 5px 2px 9px 0px rgba(0,0,0,0.61)
+  justify-content: space-between;
+
+}
+
+
+header h1{
+  font-family: 'Sigmar One';
+  margin-left: 50px;
+  font-size: 2.5rem;
 }
 
 button{
@@ -30,6 +90,29 @@ button:active{
   transform:scale(.95)
 }
 
+.score-board-area{
+  display: flex;
+  flex-direction: row;
+  margin-right: 50px;
+}
+
+.score-board{
+  margin: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75px;
+}
+
+.score-board h3{
+  border: 3px solid yellow;
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  margin: 0 auto;
+}
+
 .card-area{
   display: flex;
   flex-direction: row;
@@ -39,27 +122,45 @@ button:active{
 }
 
 .memory-card{
+  margin: 20px;
+  cursor: pointer;
+  background-color: transparent;
   width: 200px;
   height: 200px;
-  /* border: 1px solid black */
-  margin: 20px;
-  border-radius: 5px;
-  box-shadow: 5px 2px 9px 0px rgba(0,0,0,0.61);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  min-width: 20%;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  border-radius: 10px;
 }
 
 .memory-card-inner {
-
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
+  transition: transform 0.5s;
   transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.mem-card-face, .mem-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.mem-card-back {
+  background-color: #bbb;
+  color: black;
+}
+
+.mem-card-face {
+  background-color: rgb(198, 201, 204);
+  color: white;
+  transform: rotateY(180deg);
 }
 
 .card-title{
@@ -73,9 +174,9 @@ text-align: center;
 .memory-card img{
   max-width: 100px;
   max-height: 100px;
-  margin: 20px;
+  margin: 30px;
 }
 
-.memory-card:hover{
+.selected .memory-card-inner{
   transform: rotateY(180deg);
 }
