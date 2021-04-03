@@ -5,73 +5,163 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 52.5%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 52.5%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-
-h2{
-  font-family: 'Sigmar One' sans-serif;
+h2 {
+  font-family: "Sigmar One", sans-serif;
   font-size: 1.6rem;
 }
 
-header{
-  background-color: lightcoral;
-  box-shadow: 5px 2px 9px 0px rgba(0,0,0,0.61);
+p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2rem;
+}
+
+header {
+  background-color: #3b4cca;
+  box-shadow: 5px 2px 9px 0px rgba(0, 0, 0, 0.61);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  align-items: center;
+  color: #ffde00;
 }
 
-
-header h1{
-  font-family: 'Sigmar One';
-  margin-left: 50px;
+header h1 {
+  font-family: "Sigmar One", sans-serif;
+  margin: 30px;
   font-size: 2.5rem;
 }
 
-button{
+header h2 {
+  font-family: "Sigmar One", sans-serif;
+  font-size: 1.6rem;
+}
+
+button {
   background-color: lightblue;
   border: none;
   border-radius: 5px;
@@ -80,49 +170,51 @@ button{
   border: 1px solid black;
 }
 
-button:hover{
+button:hover {
   background-color: blue;
   color: white;
-  
 }
 
-button:active{
-  transform:scale(.95)
+button:active {
+  transform: scale(0.95);
 }
 
-.score-board-area{
+.score-board-area {
   display: flex;
   flex-direction: row;
-  margin-right: 50px;
+  margin: 20px;
 }
 
-.score-board{
-  margin: 0 15px;
+.score-board {
+  margin: 0 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 75px;
+  width: 150px;
 }
 
-.score-board h3{
-  border: 3px solid yellow;
-  border-radius: 10px;
-  width: 100%;
-  height: 50px;
+.score-board p {
+  margin-top: 0.5rem;
+  border: 1px solid black;
+  background-color: white;
+  width: 70%;
+  padding: 0.5rem;
   text-align: center;
-  margin: 0 auto;
+  color: black;
+  font-weight: bold;
 }
 
-.card-area{
+.card-area {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   width: 90%;
   margin: 20px auto;
 }
 
-.memory-card{
-  margin: 20px;
+.memory-card {
+  margin: 10px;
   cursor: pointer;
   background-color: transparent;
   width: 200px;
@@ -141,9 +233,12 @@ button:active{
   transition: transform 0.5s;
   transform-style: preserve-3d;
   border-radius: 10px;
+  box-shadow: 5px 2px 9px 0px rgba(0, 0, 0, 0.61);
+  border: 5px solid white;
 }
 
-.mem-card-face, .mem-card-back {
+.mem-card-face,
+.mem-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -153,30 +248,40 @@ button:active{
 }
 
 .mem-card-back {
-  background-color: #bbb;
+  background-color: #3b4cca;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    156deg,
+    rgba(179, 179, 199, 1) 0%,
+    rgba(59, 76, 202, 1) 43%
+  );
   color: black;
 }
 
 .mem-card-face {
-  background-color: rgb(198, 201, 204);
+  background-color: white;
   color: white;
   transform: rotateY(180deg);
 }
 
-.card-title{
-background-color: coral;
-width: 100%;
-border-top-left-radius: 5px;
-border-top-right-radius: 5px;
-text-align: center;
+.card-title {
+  background-color: coral;
+  padding: 5px 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center;
 }
 
-.memory-card img{
-  max-width: 100px;
-  max-height: 100px;
+.memory-card img {
+  max-width: 120px;
+  max-height: 120px;
   margin: 30px;
 }
 
-.selected .memory-card-inner{
+.selected .memory-card-inner {
   transform: rotateY(180deg);
+  box-shadow: -5px 2px 9px 0px rgba(0, 0, 0, 0.61);
 }

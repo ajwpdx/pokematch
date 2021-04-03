@@ -7,16 +7,15 @@ import MemoryCard from "./MemoryCard"
 function App() {
 
   const [memCards, setMemCards] = useState([])
-  const [collection, setCollection] = useState(coding)
   const [selection, setSelection] = useState()
   const [matches, setMatches] = useState([])
   const [guesses, setGuesses] = useState(0)
+  const [phase, setPhase] = useState('start')
+
 
   useEffect(() => {
-    setMemCards(duplicate(collection))
-  }, [collection])
-
-
+    setMemCards(duplicate(coding))
+  }, [])
 
   const duplicate = (cards) => {
     let dupCards = []
@@ -35,16 +34,15 @@ function App() {
     }
   }
 
-  console.log(memCards)
+
   return (
     <div className="App">
       <header>
         <h1 className='logo'>PokeMatch</h1>
-        {/* <button>Randomize</button> */}
         <div className="score-board-area">
           <div className="score-board">
             <h2>Matches</h2>
-            <p>0 / 8</p>
+            <p>{matches.length / 2} / 8</p>
           </div>
           <div className="score-board">
             <h2>Guesses</h2>
@@ -52,7 +50,7 @@ function App() {
           </div>
           <div className="score-board">
             <h2>Time</h2>
-            <p>0/8</p>
+            <p>0</p>
           </div>
         </div>
       </header>
