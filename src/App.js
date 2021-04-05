@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './App.css';
 import { dummyPokeData } from "./data"
 
-import MemoryCard from "./components/MemoryCard"
+import CardArea from "./views/PlayView"
+import Header from "./components/Header"
+import axios from 'axios';
 
 
 function App() {
@@ -15,6 +17,10 @@ function App() {
 
 
   useEffect(() => {
+    axios.get("https://pokeapi.co/api/v2/pokemon/3")
+      .then(res => {
+        console.log(res.data.name)
+      })
     setMemCards(duplicate(dummyPokeData))
   }, [])
 
@@ -34,33 +40,13 @@ function App() {
       secondCard.match = true
     }
   }
-
+  console.log(memCards)
 
   return (
     <div className="App">
-      <header>
-        <h1 className='logo'>PokeMatch</h1>
-        <div className="score-board-area">
-          <div className="score-board">
-            <h2>Matches</h2>
-            <p>{matches.length / 2} / 8</p>
-          </div>
-          <div className="score-board">
-            <h2>Guesses</h2>
-            <p>{guesses}</p>
-          </div>
-          <div className="score-board">
-            <h2>Time</h2>
-            <p>0</p>
-          </div>
-        </div>
-      </header>
-      <div className="card-area">
+      <Header matches={matches} guesses={guesses} />
+      <CardArea memCards={memCards} setSelection={setSelection} selection={selection} checkMatch={checkMatch} />
 
-        {memCards.map(cardData => {
-          return <MemoryCard key={cardData.key} card={cardData} setSelection={setSelection} selection={selection} checkMatch={checkMatch} />
-        })}
-      </div>
     </div>
   );
 }
